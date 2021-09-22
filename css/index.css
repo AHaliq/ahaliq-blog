@@ -13,7 +13,7 @@ body {
   flex-direction: column;
   flex-grow: 1;
 }
-.gap {
+.vgap {
   flex-grow: 2;
   max-height: var(--margin);
 }

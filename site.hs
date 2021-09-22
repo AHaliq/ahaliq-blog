@@ -1,26 +1,32 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
-import           Hakyll
 
+import Data.Monoid (mappend)
+import Data.Time.Calendar
+import Data.Time.Clock
+import Hakyll
 
 --------------------------------------------------------------------------------
 main :: IO ()
-main = hakyll $ do
+main = do
+  now <- getCurrentTime
+  let (year, _, _) = toGregorian $ utctDay now
+  hakyll $ do
     match "images/*" $ do
-        route   idRoute 
-        compile copyFileCompiler 
+      route idRoute
+      compile copyFileCompiler
     match "css/*" $ do
-        route   idRoute 
-        compile compressCssCompiler
+      route idRoute
+      compile compressCssCompiler
     match "templates/*" $ compile templateBodyCompiler
     match "index.html" $ do
-        route   idRoute 
-        compile $ do
-            getResourceBody 
-            >>= applyAsTemplate defaultContext
-            >>= loadAndApplyTemplate "templates/index.html" defaultContext 
-            >>= relativizeUrls
+      route idRoute
+      compile $ do
+        let ctx = constField "year" (show year) `mappend` defaultContext
+         in getResourceBody
+              >>= applyAsTemplate ctx
+              >>= loadAndApplyTemplate "templates/index.html" ctx
+              >>= relativizeUrls
 
 {-
 main :: IO ()
@@ -60,7 +66,6 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
-
     match "index.html" $ do
         route idRoute
         compile $ do
@@ -80,5 +85,5 @@ main = hakyll $ do
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
+  dateField "date" "%B %e, %Y"
+    `mappend` defaultContext

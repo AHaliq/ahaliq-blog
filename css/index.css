@@ -19,7 +19,7 @@ body {
 }
 .container {
   display: grid;
-  grid-template-columns: auto 20%;
+  grid-template-columns: auto 13.32rem;
   grid-template-rows: auto auto 1fr auto;
   max-width: 66.6rem;
   flex-grow: 1;

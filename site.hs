@@ -27,6 +27,17 @@ main = do
               >>= applyAsTemplate ctx
               >>= loadAndApplyTemplate "templates/index.html" ctx
               >>= relativizeUrls
+    match "about.md" $ do
+      route   $ setExtension "html"
+      compile $ pandocCompiler 
+        >>= loadAndApplyTemplate "templates/center.html" defaultContext 
+        >>= relativizeUrls
+    match "cv.html" $ do
+      route idRoute 
+      compile $ getResourceBody 
+        >>= applyAsTemplate defaultContext
+        >>= loadAndApplyTemplate "templates/center.html" defaultContext
+        >>= relativizeUrls
 
 {-
 main :: IO ()

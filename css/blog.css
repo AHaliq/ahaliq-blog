@@ -1,0 +1,27 @@
+:root {
+  --margin: 6.66rem;
+}
+body {
+  display: flex;
+}
+.hgap {
+  flex-grow: 2;
+  max-width: var(--margin);
+}
+.vcontainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.vgap {
+  flex-grow: 2;
+  max-height: var(--margin);
+}
+.container {
+  display: grid;
+  grid-template-columns: 6% 12% 42% 40%;
+  grid-template-rows: auto auto auto 1fr auto;
+  gap: 1rem;
+  max-width: 66.6rem;
+  flex-grow: 1;
+}

@@ -8,15 +8,6 @@ body {
   flex-grow: 2;
   max-width: var(--margin);
 }
-.tri {
-  grid-row: 3/3;
-  grid-column: 2/2;
-  writing-mode: vertical-lr;
-  text-orientation: mixed;
-  text-align: center;
-  vertical-align: middle;
-  letter-spacing: 1rem;
-}
 .vcontainer {
   display: flex;
   flex-direction: column;
@@ -68,6 +59,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.splash {
+  grid-row: 3/3;
+  grid-column: 2/2;
+  margin-top: 2rem;
+  font-size: 6rem;
 }
 .nav-btn {
   font-size: 12rem;

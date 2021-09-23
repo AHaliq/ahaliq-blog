@@ -19,7 +19,14 @@ body {
   padding: 0;
   margin: 0;
 }
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 3rem;
 }

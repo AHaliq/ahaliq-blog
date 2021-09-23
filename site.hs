@@ -38,6 +38,11 @@ main = do
         >>= applyAsTemplate defaultContext
         >>= loadAndApplyTemplate "templates/center.html" defaultContext
         >>= relativizeUrls
+    match "blog.md" $ do
+      route   $ setExtension "html"
+      compile $ pandocCompiler 
+        >>= loadAndApplyTemplate "templates/blogindex.html" defaultContext
+        >>= relativizeUrls
 
 {-
 main :: IO ()

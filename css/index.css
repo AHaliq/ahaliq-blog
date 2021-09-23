@@ -144,6 +144,9 @@ footer {
         grid-row: 4/4;
         grid-column: 1/1;
     }
+    .hgap {
+        min-width: 1rem;
+    }
     footer {
         grid-row: 5/5;
         grid-column: 1/1;

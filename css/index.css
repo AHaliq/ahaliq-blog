@@ -65,12 +65,14 @@ body {
   grid-column: 2/2;
   margin-top: 2rem;
   font-size: 6rem;
+  user-select: none;
 }
 .nav-btn {
   font-size: 12rem;
   text-transform: uppercase;
   font-weight: bold;
   transition: color 0.125s, padding 0.5s;
+  user-select: none;
 }
 .nav-btn:link, .nav-btn:visited {
   color: inherit;
@@ -90,6 +92,7 @@ footer {
   flex-grow: 1;
   text-align: center;
   transition: color 0.25s, border 0.25s, background-color 0.25s;
+  user-select: none;
 }
 .link-btn:hover {
   background-color: var(--fg2-col);

@@ -5,6 +5,10 @@
   --bg-col: #e6e6e6;
   --fg2-col: #5D4954;
 }
+::selection {
+  color: var(--bg-col);
+  background: var(--fg2-col);
+}
 html {
   font-family: 'DM Sans', sans-serif;
   font-size: 75%;

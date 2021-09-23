@@ -1,5 +1,6 @@
 :root {
     --margin: 6.66rem;
+    --max-wdt: 66.6rem;
 }
 
 body {
@@ -26,7 +27,7 @@ body {
     display: grid;
     grid-template-columns: auto 13.32rem;
     grid-template-rows: auto auto 1fr auto;
-    max-width: 66.6rem;
+    max-width: var(--max-wdt);
     flex-grow: 1;
 }
 
@@ -117,4 +118,34 @@ footer {
     background-color: var(--fg2-col);
     color: var(--bg-col);
     border-top: 0.333rem solid var(--fg2-col);
+}
+
+@media only screen and (max-width: 900px) {
+    .nav-btn {
+        font-size: 6rem;
+    }
+    .container {
+        grid-template-rows: auto auto auto 1fr auto;
+        grid-template-columns: auto;
+    }
+    .splash {
+        display: none;
+        grid-column: 1/1;
+    }
+    .year {
+        display: none;
+        grid-column: 1/1;
+    }
+    .descr {
+        grid-row: 3/3;
+        grid-column: 1/1;
+    }
+    .nav {
+        grid-row: 4/4;
+        grid-column: 1/1;
+    }
+    footer {
+        grid-row: 5/5;
+        grid-column: 1/1;
+    }
 }

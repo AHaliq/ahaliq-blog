@@ -7,11 +7,16 @@ import Data.Time.Clock
 import Hakyll
 
 --------------------------------------------------------------------------------
+config :: Configuration
+config = defaultConfiguration
+  { destinationDirectory = "docs"
+  }
+
 main :: IO ()
 main = do
   now <- getCurrentTime
   let (year, _, _) = toGregorian $ utctDay now
-  hakyll $ do
+  hakyllWith config $ do
     match "images/*" $ do
       route idRoute
       compile copyFileCompiler

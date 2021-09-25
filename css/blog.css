@@ -44,9 +44,19 @@ body {
 }
 
 .tag {
-    border: solid var(--fg-col) 0.1rem;
-    border-radius: 0.5rem;
-    padding: 0.25rem;
+    border: solid var(--fg-col) 0.2rem;
+    user-select: none;
+    padding: 0.0125rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 1rem;
+    transition: color 0.2s, background-color 0.2s, border 0.2s;
+}
+
+.tag:hover {
+    border: solid var(--fg2-col) 0.2rem;
+    background-color: var(--fg2-col);
+    color: var(--bg-col);
 }
 
 .entry-title {

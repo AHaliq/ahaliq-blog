@@ -76,7 +76,7 @@ a:hover {
     gap: 0.25rem;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1200px) {
     .list {
         grid-template-columns: auto auto 1fr auto;
     }

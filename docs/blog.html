@@ -13,13 +13,72 @@
 <body>
     <div class="hgap"></div>
     <div class="vcontainer">
-        <div class="vgap"></div>
-        <div class="container">
-            <p>Welcome to the blog index page!</p>
+        <div class="title">
+            Blog
         </div>
-        <div class="vgap"></div>
+        <div class="back">
+            <span>click </span>
+            <a href="./">here</a>
+            <span> to go back to home</span>
+        </div>
+        <div class="list">
+            <div class="border"></div>
+            <div class="border"></div>
+            <div class="border"></div>
+            <div class="border"></div>
+            
+                <div class="entry-date">07/12/2015</div>
+                <div class="entry-tags">
+                    bar1, bar2
+                </div>
+                <a href="./posts/2015-12-07-tu-quoque.html" class="entry-title">Tu Quoque</a>
+                <div class="entry-body">Tu Quoque Teaser lorem ipsum dolor sit amet</div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+            
+                <div class="entry-date">28/11/2015</div>
+                <div class="entry-tags">
+                    bar2, foo
+                </div>
+                <a href="./posts/2015-11-28-carpe-diem.html" class="entry-title">Carpe Diem</a>
+                <div class="entry-body">Carpe Diem Teaser lorem ipsum dolor sit amet</div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+            
+                <div class="entry-date">07/10/2015</div>
+                <div class="entry-tags">
+                    bar1
+                </div>
+                <a href="./posts/2015-10-07-rosa-rosa-rosam.html" class="entry-title">Rosa Rosa Rosam</a>
+                <div class="entry-body">Rosa Rosa Rosam Teaser lorem ipsum dolor sit amet</div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+            
+                <div class="entry-date">12/08/2015</div>
+                <div class="entry-tags">
+                    foo, bar1, bar2, foo2, longlong
+                </div>
+                <a href="./posts/2015-08-12-spqr.html" class="entry-title">S.P.Q.R.</a>
+                <div class="entry-body">SPQR Teaser lorem ipsum dolor sit amet</div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+            
+        </div>
     </div>
     <div class="hgap"></div>
+    <script>
+        document.querySelectorAll('.entry-tags').forEach((x,i,o) => 
+            x.innerHTML = (x.innerHTML.split(",").map(x => '<div class="tag">' + x.trim() + '</div>').join("\n"))
+        );
+    </script>
 </body>
 
 </html>

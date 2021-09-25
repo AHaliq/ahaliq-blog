@@ -1,6 +1,8 @@
 ---
 title: Rosa Rosa Rosam
 author: Ovidius
+tags: bar1
+teaser: Rosa Rosa Rosam Teaser lorem ipsum dolor sit amet
 ---
 
 Suspendisse pharetra ullamcorper sem et auctor. Suspendisse vitae tellus eu

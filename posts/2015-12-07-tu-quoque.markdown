@@ -1,6 +1,8 @@
 ---
 title: Tu Quoque
 author: Julius
+tags: bar1, bar2
+teaser: Tu Quoque Teaser lorem ipsum dolor sit amet
 ---
 
 Vestibulum leo turpis, dignissim quis ultrices sit amet, iaculis ac ligula.

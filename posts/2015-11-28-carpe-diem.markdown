@@ -1,5 +1,7 @@
 ---
 title: Carpe Diem
+tags: bar2, foo
+teaser: Carpe Diem Teaser lorem ipsum dolor sit amet
 ---
 
 Fusce tortor quam, egestas in posuere quis, porttitor vel turpis. Donec

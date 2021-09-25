@@ -34,20 +34,32 @@ main = do
               >>= relativizeUrls
     match "about.md" $ do
       route   $ setExtension "html"
-      compile $ pandocCompiler 
-        >>= loadAndApplyTemplate "templates/center.html" defaultContext 
+      compile $ pandocCompiler
+        >>= loadAndApplyTemplate "templates/center.html" defaultContext
         >>= relativizeUrls
     match "cv.html" $ do
-      route idRoute 
-      compile $ getResourceBody 
+      route idRoute
+      compile $ getResourceBody
         >>= applyAsTemplate defaultContext
         >>= loadAndApplyTemplate "templates/center.html" defaultContext
         >>= relativizeUrls
+    match "posts/*" $ do
+      route $ setExtension "html"
+      compile $ pandocCompiler
+          >>= loadAndApplyTemplate "templates/post.html"    postCtx
+          >>= loadAndApplyTemplate "templates/default.html" postCtx
+          >>= relativizeUrls
     match "blog.md" $ do
       route   $ setExtension "html"
-      compile $ pandocCompiler 
-        >>= loadAndApplyTemplate "templates/blogindex.html" defaultContext
-        >>= relativizeUrls
+      compile $ do
+        posts <- recentFirst =<< loadAll "posts/*"
+        let indexCtx =
+                listField "posts" postCtx (return posts) `mappend`
+                defaultContext in
+          pandocCompiler
+          >>= loadAndApplyTemplate "templates/blogindex.html" indexCtx
+          >>= relativizeUrls
+
 
 {-
 main :: IO ()
@@ -106,5 +118,17 @@ main = hakyll $ do
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
-  dateField "date" "%B %e, %Y"
-    `mappend` defaultContext
+  dateField "date" "%d/%m/%Y" `mappend`
+  defaultContext
+
+listContextWith :: Context String -> String -> Context a
+listContextWith ctx s = listField s ctx $ do
+    identifier <- getUnderlying
+    metadata <- getMetadata identifier
+    let metas = maybe [] (map trim . splitAll ",") $ lookupString s metadata
+    return $ map (\x -> Item (fromFilePath x) x) metas
+
+listContext :: String -> Context a
+listContext = listContextWith postCtx
+
+tagContext = listContext "tags" <> defaultContext

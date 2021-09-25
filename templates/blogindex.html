@@ -13,13 +13,39 @@
 <body>
     <div class="hgap"></div>
     <div class="vcontainer">
-        <div class="vgap"></div>
-        <div class="container">
-            $body$
+        <div class="title">
+            $title$
         </div>
-        <div class="vgap"></div>
+        <div class="back">
+            <span>click </span>
+            <a href="/">here</a>
+            <span> to go back to home</span>
+        </div>
+        <div class="list">
+            <div class="border"></div>
+            <div class="border"></div>
+            <div class="border"></div>
+            <div class="border"></div>
+            $for(posts)$
+                <div class="entry-date">$date$</div>
+                <div class="entry-tags">
+                    $tags$
+                </div>
+                <a href="$url$" class="entry-title">$title$</a>
+                <div class="entry-body">$teaser$</div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+                <div class="border-thin"></div>
+            $endfor$
+        </div>
     </div>
     <div class="hgap"></div>
+    <script>
+        document.querySelectorAll('.entry-tags').forEach((x,i,o) => 
+            x.innerHTML = (x.innerHTML.split(",").map(x => '<div class="tag">' + x.trim() + '</div>').join("\n"))
+        );
+    </script>
 </body>
 
 </html>

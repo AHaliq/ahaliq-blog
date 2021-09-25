@@ -1,5 +1,7 @@
 ---
 title: S.P.Q.R.
+tags: foo, bar1, bar2, foo2, longlong
+teaser: SPQR Teaser lorem ipsum dolor sit amet
 ---
 
 Mauris in lorem nisl. Maecenas tempus facilisis ante, eget viverra nisl

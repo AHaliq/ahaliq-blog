@@ -1,5 +1,6 @@
 ---
 title: Carpe Diem
+author: Abdul Haliq
 tags: bar2, foo
 teaser: Carpe Diem Teaser lorem ipsum dolor sit amet
 ---

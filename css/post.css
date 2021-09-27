@@ -1,0 +1,50 @@
+:root {
+  --max-wdt: 60rem;
+}
+
+.title {
+  font-size: 6rem;
+  font-weight: bold;
+  border-top: 0.333rem solid var(--fg-col);
+  border-bottom: 0.083rem solid var(--fg-col);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto 1fr auto;
+  gap: 1rem;
+}
+
+.metagrid {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+}
+.metaheader {
+  opacity: 0.7;
+}
+
+.date, .author {
+  font-style: italic;
+}
+
+.back {
+  user-select: none;
+  transition: color 0.2s, background-color 0.2s;
+  font-style: italic;
+  width: fit-content;
+}
+
+.back:hover {
+  color: var(--bg-col);
+  background-color: var(--fg2-col);
+}
+
+.vgap {
+  min-height: var(--margin);
+}
+
+.hgap {
+  min-width: var(--pad);
+}

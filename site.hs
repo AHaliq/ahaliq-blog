@@ -46,8 +46,7 @@ main = do
     match "posts/*" $ do
       route $ setExtension "html"
       compile $ pandocCompiler
-          >>= loadAndApplyTemplate "templates/post.html"    postCtx
-          >>= loadAndApplyTemplate "templates/default.html" postCtx
+          >>= loadAndApplyTemplate "templates/post.html" postCtx
           >>= relativizeUrls
     match "blog.md" $ do
       route   $ setExtension "html"

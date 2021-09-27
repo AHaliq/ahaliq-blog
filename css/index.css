@@ -1,36 +1,3 @@
-:root {
-    --margin: 6.66rem;
-    --max-wdt: 66.6rem;
-}
-
-body {
-    display: flex;
-}
-
-.hgap {
-    flex-grow: 2;
-    max-width: var(--margin);
-}
-
-.vcontainer {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.vgap {
-    flex-grow: 2;
-    max-height: var(--margin);
-}
-
-.container {
-    display: grid;
-    grid-template-columns: auto 13.32rem;
-    grid-template-rows: auto auto 1fr auto;
-    max-width: var(--max-wdt);
-    flex-grow: 1;
-}
-
 .year {
     grid-row: 1/1;
     grid-column: 2/2;

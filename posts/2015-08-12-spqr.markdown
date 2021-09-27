@@ -1,5 +1,6 @@
 ---
 title: S.P.Q.R.
+author: Abdul Haliq
 tags: foo, bar1, bar2, foo2, longlong
 teaser: SPQR Teaser lorem ipsum dolor sit amet
 ---

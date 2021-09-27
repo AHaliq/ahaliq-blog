@@ -1,11 +1,40 @@
-<article>
-    <section class="header">
-        Posted on $date$
-        $if(author)$
-            by $author$
-        $endif$
-    </section>
-    <section>
-        $body$
-    </section>
-</article>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/post.css" />
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A. Haliq - $title$</title>
+</head>
+
+<body>
+  <div class="hgap"></div>
+  <div class="vcontainer">
+    <div class="vgap"></div>
+    <div class="container">
+      <div class="title">$title$</div>
+      <div class="metagrid">
+        <div class="metaheader">date</div>
+        <div class="metaheader">author</div>
+        <div class="date">$date$</div>
+        <div class="author">$author$</div>
+      </div>
+      <div class="entry-tags">$tags$</div>
+      <div class="content">$body$</div>
+      <a href="/blog.html" class="back">back to index</a>
+    </div>
+    <div class="vgap"></div>
+  </div>
+  </div>
+  <div class="hgap"></div>
+  <script>
+    document.querySelectorAll('.entry-tags').forEach((x, i, o) =>
+      x.innerHTML = (x.innerHTML.split(",").map(x => '<div class="tag">' + x.trim() + '</div>').join("\n"))
+    );
+  </script>
+</body>
+
+</html>

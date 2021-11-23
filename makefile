@@ -1,9 +1,9 @@
 
 build:
-	cabal new-run site build
+	nix-shell --run 'cabal new-run site build'
 
 clean:
-	cabal new-run site clean
+	nix-shell --run 'cabal new-run site clean'
 
 watch:
-	cabal new-run site watch
+	nix-shell --run 'cabal new-run site watch'

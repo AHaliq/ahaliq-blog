@@ -6,6 +6,7 @@ teaser: Now that we have semantics in category theory, can we define a better sy
 ---
 
 **WORK IN PROGRESS**
+
 # Prerequisite: Lambda Calculus
 - lambda abstraction
 - beta reduction

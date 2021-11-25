@@ -23,26 +23,26 @@
         </div>
         <div class="list">
             <div class="border"></div>
-            <div class="border"></div>
-            <div class="border"></div>
-            <div class="border"></div>
+            <div class="border border-dissappear"></div>
+            <div class="border border-dissappear"></div>
+            <div class="border border-dissappear"></div>
             $for(posts)$
-                <div class="entry-date">$date$</div>
-                <div class="entry-tags">
-                    $tags$
-                </div>
-                <a href="$url$" class="entry-title">$title$</a>
-                <div class="entry-body">$teaser$</div>
-                <div class="border-thin"></div>
-                <div class="border-thin"></div>
-                <div class="border-thin"></div>
-                <div class="border-thin"></div>
+            <a href="$url$" class="entry-title">$title$</a>
+            <div class="entry-date">$date$</div>
+            <div class="entry-tags">
+                $tags$
+            </div>
+            <div class="entry-body">$teaser$</div>
+            <div class="border-thin"></div>
+            <div class="border-thin border-dissappear"></div>
+            <div class="border-thin border-dissappear"></div>
+            <div class="border-thin border-dissappear"></div>
             $endfor$
         </div>
     </div>
     <div class="hgap"></div>
     <script>
-        document.querySelectorAll('.entry-tags').forEach((x,i,o) => 
+        document.querySelectorAll('.entry-tags').forEach((x, i, o) =>
             x.innerHTML = (x.innerHTML.split(",").map(x => '<div class="tag">' + x.trim() + '</div>').join("\n"))
         );
     </script>

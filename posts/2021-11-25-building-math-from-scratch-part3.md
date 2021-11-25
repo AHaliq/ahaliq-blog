@@ -6,6 +6,7 @@ teaser: Moving beyond just organizing math by definition in set theory, we can e
 ---
 
 **WORK IN PROGRESS**
+
 # Basics
 - morphisms
   - monomorphism
@@ -37,6 +38,7 @@ teaser: Moving beyond just organizing math by definition in set theory, we can e
 - closed
 - abelian
 - grothendiek
+- kleisli
 - dagger
 - enriched
 - f algebra

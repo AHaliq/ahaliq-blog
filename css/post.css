@@ -12,7 +12,7 @@ img {
 }
 
 .title {
-  font-size: 6rem;
+  font-size: 4.5rem;
   font-weight: bold;
   border-top: 0.333rem solid var(--fg-col);
   border-bottom: 0.083rem solid var(--fg-col);
@@ -56,4 +56,10 @@ img {
 
 .hgap {
   min-width: var(--pad);
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 2.25rem;
+  }
 }

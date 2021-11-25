@@ -5,13 +5,9 @@
 
 .list {
     display: grid;
-    grid-template-columns: auto auto auto 1fr;
+    grid-template-columns: auto auto auto auto;
     grid-template-rows: auto;
     gap: 1rem;
-}
-
-.entry-tags {
-    max-width: 10rem;
 }
 
 .border {
@@ -24,7 +20,7 @@
 
 .entry-title {
     font-weight: bold;
-    font-size: 5rem;
+    font-size: 2rem;
     user-select: none;
     transition: color 0.2s, background-color 0.2s;
 }
@@ -44,19 +40,26 @@ a:hover {
     background-color: var(--fg2-col);
 }
 
+.hgap {
+    width: 1rem;
+}
+
 .back {
     display: flex;
     gap: 0.25rem;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 600px) {
     .list {
-        grid-template-columns: auto auto 1fr auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
     }
-    .entry-title {
-        font-size: 3rem;
+    .entry-tags {
+        width: 100%;
     }
-    .hgap {
-        min-width: 1rem;
+    .border-dissappear {
+        display: none;
     }
 }

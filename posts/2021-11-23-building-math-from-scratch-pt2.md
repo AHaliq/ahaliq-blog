@@ -6,6 +6,7 @@ teaser: With the empty set defined, we now construct well known structures in ma
 ---
 
 **WORK IN PROGRESS**
+
 # Constructing Numbers
 - kuratowski encoding of tuples
 - naturals

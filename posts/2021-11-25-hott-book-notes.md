@@ -6,6 +6,7 @@ teaser: Some notes as I'm reading through the HoTT book
 ---
 
 **WORK IN PROGRESS**
+
 # Chapter 1 Type Theory
 
 ## 1.1 Type Theory versus set theory

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/post.css" />
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A. Haliq - Building Mathematics from scratch, part 1</title>
+</head>
+
+<body>
+  <div class="hgap"></div>
+  <div class="vcontainer">
+    <div class="vgap"></div>
+    <div class="container">
+      <div class="title">Building Mathematics from scratch, part 1</div>
+      <div class="metagrid">
+        <div class="metaheader">date</div>
+        <div class="metaheader">author</div>
+        <div class="date">23/11/2021</div>
+        <div class="author">Abdul Haliq</div>
+      </div>
+      <div class="entry-tags">mathematics, complexity theory, computation, deductive systems</div>
+      <div class="content"><p><strong>WORK IN PROGRESS</strong></p>
+<p>Advanced mathematics to me when I encounter them as an undergraduate seemed like an encyclopedia of unrelated facts and formulas and are only motivated by their use in practical applications in solving problems.</p>
+<p>Although practical, this view did not explain the common patterns and properties used in many different mathematics and their dependency from one another.</p>
+<p>This led me down a rabbit hole of philosophy and foundations of mathematics which I still am exploring today. This series of posts will explore alternative views of organizing mathematics besides by applications.</p>
+<h1 id="reasoning">Reasoning</h1>
+<p>Instead of starting from mathematics, we begin from a more human and philosophical idea of reasoning. We can define reasoning as a process that helps to discover new truths[1]. It can also be a process to justify our beliefs and verify them. Let us explore some of the main forms of reasoning.</p>
+<p>The forms of reasoning we will explore are composed of three elements: rule, cause, effect[2]. The rule is the explaination as to why when a cause happens, the effect follows. Given two of the three components we can derive the third.</p>
+<figure>
+<img src="../images/reasoning.jpg" alt="reasoning" /><figcaption aria-hidden="true">reasoning</figcaption>
+</figure>
+<p><em>Notice how this definition of the forms of reasoning themselves is a form of reasoning as well? Heres a hint, the intersections are the rule, and the base circles are the cause.</em></p>
+<p>When it comes to mathematics, it is a form of deductive reasoning. We start with some assumptions which we call axioms and deduce its consequences.</p>
+<h1 id="computation">Computation</h1>
+<p>Deductive reasoning can also be seen as a process of verifying the effect given the rules and causes. Thus it can be seen as a decidable problem where given an effect and deductive system, the problem is to answer a yes or no if the effect is derivable from the system.</p>
+<ul>
+<li>oracle: prover, verifier</li>
+<li>formal language
+<ul>
+<li>alphabet</li>
+<li>formulas</li>
+<li>well formed formulas</li>
+</ul></li>
+<li>computational complexity classes
+<ul>
+<li>chomsky hierarchy</li>
+</ul></li>
+<li>formalist philosophy</li>
+<li>mathematics as computation</li>
+</ul>
+<h1 id="deductive-systems">Deductive Systems</h1>
+<ul>
+<li>as a reasoning process / computation</li>
+<li>judgements</li>
+<li>axioms</li>
+<li>deductive rules</li>
+</ul>
+<h1 id="first-order-logic">First Order Logic</h1>
+<ul>
+<li>introduction and elimination rules</li>
+<li>conjunction</li>
+<li>disjunction</li>
+<li>negation
+<ul>
+<li>constructivism / intuitionistic logic</li>
+</ul></li>
+</ul>
+<h1 id="zfc-axioms-with-choice">ZFC Axioms with choice</h1>
+<ul>
+<li>axiom …</li>
+</ul>
+<h1 id="conclusion">Conclusion</h1>
+<ul>
+<li>we will use the empty set to build all of known mathematics</li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Reason">1</a></li>
+<li><a href="https://www.youtube.com/watch?v=-nn3XMoPC7s">2</a></li>
+</ul></div>
+      <a href="../blog.html" class="back">back to index</a>
+    </div>
+    <div class="vgap"></div>
+  </div>
+  </div>
+  <div class="hgap"></div>
+  <script>
+    document.querySelectorAll('.entry-tags').forEach((x, i, o) =>
+      x.innerHTML = (x.innerHTML.split(",").map(x => '<div class="tag">' + x.trim() + '</div>').join("\n"))
+    );
+  </script>
+</body>
+
+</html>

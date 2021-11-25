@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/post.css" />
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A. Haliq - Homotopy Type Theory book (HoTT book) notes</title>
+</head>
+
+<body>
+  <div class="hgap"></div>
+  <div class="vcontainer">
+    <div class="vgap"></div>
+    <div class="container">
+      <div class="title">Homotopy Type Theory book (HoTT book) notes</div>
+      <div class="metagrid">
+        <div class="metaheader">date</div>
+        <div class="metaheader">author</div>
+        <div class="date">25/11/2021</div>
+        <div class="author">Abdul Haliq</div>
+      </div>
+      <div class="entry-tags">mathematics, homotopy type theory, type theory, logic</div>
+      <div class="content"><p><strong>WORK IN PROGRESS</strong> # Chapter 1 Type Theory</p>
+<h2 id="type-theory-versus-set-theory">1.1 Type Theory versus set theory</h2>
+<ul>
+<li>introduction
+<ul>
+<li>type theory uses judgements to specify term and type; terms cannot exist without a type, its existence implies its type’s existence</li>
+<li>type theory is a form of logic unlike set theory which is built ontop of first order logic</li>
+<li>proving a theorem is checking the existence of a term in a type; object construction</li>
+</ul></li>
+<li>there are at least two equalities in type theory
+<ul>
+<li>propositional equality: an identity type between two terms is a type, and its inhibition is a proof of the equality of the two terms</li>
+<li>judgemental equality: an algorithmically decidable / normalization process to show that the two are the same judgement
+<ul>
+<li>if <code>A</code> is judgementall equal to <code>B</code>, and we have the judgement <code>a:A</code> then we can derive <code>a:B</code></li>
+</ul></li>
+</ul></li>
+<li>there are two types judgements
+<ul>
+<li><code>a:A</code>; <code>a</code> is an object of type <code>A</code></li>
+<li><code>a≡b:A</code>; <code>a</code> and <code>b</code> are definitionally equal objects of type <code>A</code>
+<ul>
+<li>two definitionally equal expressions can be expressed via <code>a :≡ b</code></li>
+</ul></li>
+</ul></li>
+<li>context are an ordered list of judgements we use as an assumption
+<ul>
+<li>to form the judgement <code>m + n : N</code> we need to assume <code>m : N</code> and <code>n : N</code></li>
+</ul></li>
+</ul>
+<h2 id="function-types">1.2 Function Types</h2>
+<ul>
+<li>the type of functions from domain <code>A</code> to codomain <code>B</code> is <code>A → B</code></li>
+<li>they are not defined as functional relations as in set theory; they are primitive and defined by how we use them (elimination rule) and how to construct them (introduction rule)
+<ul>
+<li>introduction
+<ul>
+<li><code>f(x) :≡ Φ</code> definitionally assigning to an expression which uses x</li>
+<li><code>λ(x : A). Φ)</code> via lambda expressions</li>
+<li><code>x ↦ Φ</code> via mapsto syntax</li>
+<li><code>g(x,-)</code> via anonymous arguments</li>
+</ul></li>
+</ul></li>
+<li>binders maps the arguments defined in the abstraction and the expression
+<ul>
+<li>use alpha renaming to avoid semantically incorrect captures</li>
+<li>use products to express multi argument functions</li>
+<li>use currying to transform product arguments to single argument functions returning functions</li>
+</ul></li>
+</ul>
+<h2 id="universes-and-families">1.3 Universes and families</h2>
+<ul>
+<li>in naive set theory the universe of all types is <code>U_∞</code>
+<ul>
+<li>this introduces paradoxes</li>
+</ul></li>
+<li>we avoid this by using a hierarchy of universes
+<ul>
+<li><code>U_0 : U_1 : U_2 : ...</code></li>
+<li>the universe is cumulative; forall <code>A : U_i</code>, <code>A : U_i+1</code></li>
+<li>thus terms don’t have unique types</li>
+<li>typical ambiguity is when we omit the universe’s index and assume the indices have been assigned in a consistent manner</li>
+</ul></li>
+<li>dependency types are a term indexed family of types
+<ul>
+<li><code>A → U</code></li>
+<li>types in <code>U</code> are referred to small types</li>
+<li>a constant type family is <code>B : U ⊢ λ(x : A). B : A → U</code></li>
+<li>the indices for universe are not integers and we cannot define the function from integer to universe at index of that integer</li>
+</ul></li>
+</ul>
+<h2 id="dependent-function-types">1.4 Dependent Function Types</h2>
+<ul>
+<li>dependent function types
+<ul>
+<li>generalized functions where codomain’s type varies dependeing on the element of the domain</li>
+<li>can be regarded as cartesian product over a given type</li>
+<li><code>A : U, B : A → U ⊢ ∏(x:A), B(x)</code></li>
+<li>if <code>B</code> is a constant family it is simply the function type
+<ul>
+<li><code>∏(x:A)B ≡ (A → B)</code></li>
+</ul></li>
+<li>introduction: via lambda expressions</li>
+<li>elimination: via beta reduction</li>
+</ul></li>
+<li>polymorphic function
+<ul>
+<li>dependent function where the term argument is a type</li>
+</ul></li>
+</ul>
+<h2 id="product-types">1.5 Product Types</h2>
+<ul>
+<li>product type
+<ul>
+<li>type of product of two types</li>
+<li><code>A × B : U</code></li>
+<li><code>(a,b) : A × B</code></li>
+<li>remember these are primitive concept and not like a set of relations in set theory</li>
+</ul></li>
+<li>unit type
+<ul>
+<li>type with only one term</li>
+<li><code>1 : U</code></li>
+<li><code>* : 1</code></li>
+</ul></li>
+</ul>
+<h3 id="how-to-specify-a-type">How to specify a type</h3>
+<ol type="i">
+<li>Formation Rule; rule to define new type judgements
+<ul>
+<li><code>U_i : U_i+1</code></li>
+<li><code>A : U</code></li>
+<li><code>A : U, B : U ⊢ A → B</code></li>
+<li><code>A : U, B : A → U ⊢ ∏(x:A), B(x)</code></li>
+<li><code>A : U, B : U ⊢ A × B : U</code></li>
+<li><code>1 : U</code></li>
+</ul></li>
+<li>Introduction Rule; rule to define term of a type
+<ul>
+<li><code>A : U_i ⊢ A : U_i+1</code></li>
+<li><code>a : A</code></li>
+<li><code>λ(x : A). Φ : A → B</code></li>
+<li><code>λ(x : A). Φ : ∏(x:A), B(x)</code></li>
+<li><code>a : A, b : B ⊢ (a,b) : A × B</code></li>
+<li><code>* : 1</code></li>
+</ul></li>
+<li>Elimnation Rule - <code>(λ(x : A). Φ)(a) : B</code> - <code>rec_A × B : ∏(C:U), (A → B → C) → A × B → C</code>
+<ul>
+<li>rec_A × B(C,g,(a,b)) :≡ g(a)(b)`</li>
+<li><code>pr_1 :≡ rec_A × B(A,λa.λb.a)</code></li>
+<li><code>pr_2 :≡ rec_A × B(B,λa.λb.b)</code>
+<ul>
+<li><code>rec_1 : ∏(C:U), C → 1 → C</code></li>
+</ul></li>
+<li><code>rec_1(C,c,*) :≡ c</code>
+<ul>
+<li>we often use recursor functions to define eliminators to map out of the data structure</li>
+<li>we can define the recursor first to derive eliminators or we could define recursors and use that to derive a recursor</li>
+<li></li>
+</ul></li>
+</ul></li>
+<li>Computation Rule
+<ul>
+<li><code>Φ / a : B</code></li>
+</ul></li>
+<li>Uniqueness Principle
+<ul>
+<li>a function that expresses uniqueness of terms into or out of the type via Computation and Formation</li>
+<li>it is used as a rule for judgemental equality</li>
+<li>otherwise it is for propositional equality; propositional uniqueness principle</li>
+</ul></li>
+</ol></div>
+      <a href="../blog.html" class="back">back to index</a>
+    </div>
+    <div class="vgap"></div>
+  </div>
+  </div>
+  <div class="hgap"></div>
+  <script>
+    document.querySelectorAll('.entry-tags').forEach((x, i, o) =>
+      x.innerHTML = (x.innerHTML.split(",").map(x => '<div class="tag">' + x.trim() + '</div>').join("\n"))
+    );
+  </script>
+</body>
+
+</html>

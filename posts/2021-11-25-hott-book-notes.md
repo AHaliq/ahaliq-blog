@@ -7,6 +7,9 @@ teaser: Some notes as I'm reading through the HoTT book
 
 **WORK IN PROGRESS**
 
+
+\\[ \\ln x = \\int_{-\\infty}^x \\frac 1 y \\, dy . \\]
+
 # Chapter 1 Type Theory
 
 ## 1.1 Type Theory versus set theory

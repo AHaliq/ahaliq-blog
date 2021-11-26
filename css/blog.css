@@ -41,8 +41,6 @@ a:hover {
 }
 
 .title-container {
-    position: sticky;
-    top: 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -69,5 +67,10 @@ a:hover {
     }
     .border-dissappear {
         display: none;
+    }
+    .title-container {
+        position: sticky;
+        top: 0;
+        border-bottom: 0.333rem solid var(--fg-col);
     }
 }

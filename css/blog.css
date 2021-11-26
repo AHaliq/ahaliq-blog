@@ -1,3 +1,7 @@
+.hgap {
+    min-width: var(--pad);
+}
+
 .vcontainer {
     padding-top: var(--pad);
     padding-bottom: var(--pad);

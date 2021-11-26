@@ -8,7 +8,7 @@ teaser: Some notes as I'm reading through the HoTT book
 **WORK IN PROGRESS**
 
 
-\\[ \\ln x = \\int_{-\\infty}^x \\frac 1 y \\, dy . \\]
+$$ \ln x = \int_{-\infty}^x \frac 1 y \, dy . $$
 
 # Chapter 1 Type Theory
 

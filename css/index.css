@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 .year {
     grid-row: 1/1;
     grid-column: 2/2;
@@ -20,7 +24,7 @@
     border-top: 0.333rem solid var(--fg-col);
     border-bottom: 0.083rem solid var(--fg-col);
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 }
 
 .name {
@@ -87,7 +91,7 @@ footer {
     border-top: 0.333rem solid var(--fg2-col);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
     .nav-btn {
         font-size: 4.5rem;
     }
@@ -110,9 +114,6 @@ footer {
     .nav {
         grid-row: 4/4;
         grid-column: 1/1;
-    }
-    .hgap {
-        min-width: 1rem;
     }
     footer {
         grid-row: 5/5;

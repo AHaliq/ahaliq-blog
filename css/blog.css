@@ -40,16 +40,24 @@ a:hover {
     background-color: var(--fg2-col);
 }
 
-.hgap {
-    width: 1rem;
-}
-
-.back {
+.title-container {
+    position: sticky;
+    top: 0;
     display: flex;
-    gap: 0.25rem;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--bg-col);
 }
 
-@media only screen and (max-width: 600px) {
+.title-container > a {
+    padding: 0.5rem;
+}
+
+.entry-body {
+    font-style: italic;
+}
+
+@media only screen and (max-width: 1000px) {
     .list {
         display: flex;
         flex-direction: column;

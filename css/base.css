@@ -3,9 +3,9 @@
     --fg-col: #333333;
     --bg-col: #e6e6e6;
     --fg2-col: #5D4954;
-    --margin: 6.66rem;
-    --max-wdt: 66.6rem;
-    --pad: 3.33rem;
+    --margin: 5rem;
+    --max-wdt: 50rem;
+    --pad: 2.5rem;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 
 .hgap {
     flex-grow: 2;
-    max-width: var(--margin);
+    min-width: var(--margin);
 }
 
 .vcontainer {
@@ -46,6 +46,8 @@ body {
 
 .tag {
     border: solid var(--fg-col) 0.2rem;
+    background-color: var(--fg-col);
+    color: var(--bg-col);
     user-select: none;
     padding: 0.0125rem;
     padding-left: 0.5rem;
@@ -70,13 +72,13 @@ html {
     font-size: 100%;
     background-color: var(--bg-col);
     color: var(--fg-col);
-    height: 100%;
+    min-height: 100%;
     padding: 0;
     margin: 0;
 }
 
 body {
-    height: 100%;
+    min-height: 100%;
     padding: 0;
     margin: 0;
 }

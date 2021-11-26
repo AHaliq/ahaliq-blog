@@ -4,6 +4,10 @@ body {
     justify-content: center;
 }
 
+html, body {
+    height: 100%;
+}
+
 .content {
     max-width: 41.66rem;
     margin: 1rem;

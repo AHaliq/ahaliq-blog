@@ -58,7 +58,7 @@ img {
   min-width: var(--pad);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .title {
     font-size: 2.25rem;
   }

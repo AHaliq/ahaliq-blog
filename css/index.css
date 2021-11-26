@@ -2,6 +2,10 @@ html, body {
     height: 100%;
 }
 
+.hgap {
+    min-width: calc(var(--margin) * 0.5);
+}
+
 .year {
     grid-row: 1/1;
     grid-column: 2/2;

@@ -56,6 +56,11 @@ body {
     transition: color 0.2s, background-color 0.2s, border 0.2s;
 }
 
+.tag-highlight {
+    background-color: var(--bg-col);
+    color: var(--fg-col);
+}
+
 .tag:hover {
     border: solid var(--fg2-col) 0.2rem;
     background-color: var(--fg2-col);

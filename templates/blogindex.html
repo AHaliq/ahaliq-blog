@@ -15,10 +15,13 @@
     <div class="hgap"></div>
     <div class="vcontainer">
         <div class="title-container">
-            <a href="/"><i class="fas fa-caret-left fa-2x"></i></a>
-            <div class="title">
-                $title$
+            <div class="title-container-inner">
+                <a href="/"><i class="fas fa-caret-left fa-2x"></i></a>
+                <div class="title">
+                    $title$
+                </div>
             </div>
+            <div class="filter-tags"></div>
         </div>
         <div class="list">
             <div class="border border-dissappear"></div>
@@ -41,9 +44,54 @@
     </div>
     <div class="hgap"></div>
     <script>
-        document.querySelectorAll('.entry-tags').forEach((x, i, o) =>
-            x.innerHTML = (x.innerHTML.split(",").map(x => '<div class="tag">' + x.trim() + '</div>').join("\n"))
+        const titles = document.querySelectorAll('.entry-title');
+        const dates = document.querySelectorAll('.entry-date');
+        const tags = document.querySelectorAll('.entry-tags');
+        const snippets = document.querySelectorAll('.entry-body');
+        const borders = Array.from(document.querySelectorAll('.border-thin'))
+            .reduce((a, x) =>
+                !a.length || a.at(-1).length === 4 ?
+                    [...a, [x]] :
+                    a.map((v, i) => i === a.length - 1 ? [...v, x] : v)
+                , []);
+        const entries = Array.from(titles).map((x, i) => [borders[i], x, dates[i], tags[i], snippets[i]]);
+        const toggleHideEntryAux = ([bs, ...xs]) => [...bs, ...xs].forEach(x => x.classList.toggle("hide"));
+        const toggleHideEntry = i => toggleHideEntryAux(entries[i]);
+        // get entry elements
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const tagFilt = urlParams.get('tags')?.split(',') ?? [];
+        // get url parameters
+
+        const filtCall = e => {
+            const filts = tagFilt.filter(v => v !== e);
+            urlParams.set('tags', filts.join(','));
+            const url = window.location.origin + window.location.pathname
+            if (filts.length > 0)
+                window.location.href = url + "?" + urlParams.toString();
+            else
+                window.location.href = url;
+        }
+
+        document.querySelector(".filter-tags").innerHTML = tagFilt.map(x => `<div onClick="filtCall('` + x + `')" class="tag tag-highlight">\n<i class="fas fa-times"></i>` + x + `</div>`).join("\n");
+        // construct filter tags html elements
+
+        const tagCall = e => {
+            if (!tagFilt.includes(e)) {
+                tagFilt.push(e);
+                urlParams.set('tags', tagFilt.join(','));
+                const url = window.location.origin + window.location.pathname
+                window.location.href = url + "?" + urlParams.toString();
+            }
+        };
+
+        tags.forEach((x, i, o) =>
+        //TODO precompute if this entry should be hidden
+            x.innerHTML = (x.innerHTML.split(",").map(x => `<div onClick="tagCall('` + x.trim() + `')" class="tag` + (tagFilt.includes(x.trim()) ? ' tag-highlight"' : '"') + `>` + x.trim() + `</div>`).join("\n"))
         );
+        // convert tags string to html elements
+        //TODO dont use url parameters, use javascript as state, and use animations
     </script>
 </body>
 

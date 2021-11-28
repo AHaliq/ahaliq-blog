@@ -46,17 +46,36 @@ a:hover {
 
 .title-container {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    flex-direction: column;
     background-color: var(--bg-col);
 }
 
-.title-container > a {
+.title-container-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-tags {
+    display: flex;
+}
+
+.filter-tags > .tag {
+    display: flex;
+    align-items: center;
+    border: none;
+}
+
+.title-container-inner > a {
     padding: 0.5rem;
 }
 
 .entry-body {
     font-style: italic;
+}
+
+.hide {
+    display: none;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -1,0 +1,9 @@
+TODO
+
+- migrate to old macbook
+- add blog url
+- add templating code for home_new
+- extract css to own file
+- update site.hs to include about text for index page
+- update site.hs to remove about.md
+- research if extract js to own file possible

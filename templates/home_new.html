@@ -174,7 +174,8 @@
             padding-left: 15%;
             padding-top: 1rem;
             padding-bottom: 1rem;
-            margin-bottom: 18vh;
+            margin-bottom: 10vh;
+            transition: 0.2s;
         }
 
         #about-title {
@@ -218,9 +219,8 @@
 
         @media only screen and (min-width: 1000px) {
             #about-section {
-                background: none;
+                background: none !important;
                 padding-right: 600px;
-                margin-bottom: 10vh;
             }
         }
 
@@ -370,9 +370,13 @@
             t = fgrgbarr;
             fgrgbarr = bgrgbarr;
             bgrgbarr = t;
+            t = fgrgb;
+            fgrgb = bgrgb;
+            bgrgb = t;
             t = fgb;
             fgb = bgb;
             bgb = t;
+            document.querySelector("#about-section").style.setProperty('background-color', 'rgba(var(--bg-rgb), 0.7)');
             inTransition = true;
             it = 0;
         }

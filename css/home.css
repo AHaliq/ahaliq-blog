@@ -144,6 +144,7 @@ body {
 }
 
 #down-btn {
+    color: var(--fg2-col);
     padding-top: 0rem;
     transition: 0.1s;
     cursor: pointer;
@@ -254,6 +255,7 @@ body {
     #about-section {
         padding-right: 15%;
         margin-bottom: 2rem;
+        background: none !important;
     }
 
     .canvas {

@@ -23,7 +23,7 @@ function circClick() {
     fgb = bgb;
     bgb = t;
     document.querySelector("#about-section").style.setProperty('background-color', 'rgba(var(--bg-rgb), 0.7)');
-    inTransition = true;
-    it = 0;
+    runner.inTransition = true;
+    runner.it = 0;
 }
 // circle logo onclick

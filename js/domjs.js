@@ -11,15 +11,17 @@ function repositionCanvas() {
     const yp = scrollPercent(document.body);
     const cele = document.querySelector(".canvas");
     const pad = 0.4;
+    const bse = 0.2;
+    const fbse = 1 - bse;
     if (document.documentElement.clientWidth < 600) {
         if (yp < 14) {
-            cele.style.opacity = 0;
+            cele.style.opacity = bse;
         } else if (yp < 35) {
-            cele.style.opacity = (yp - 14) / (35 - 14);
+            cele.style.opacity = bse + ((yp - 14) / (35 - 14)) * fbse;
         } else if (yp < 70) {
-            cele.style.opacity = 1 - (yp - 35) / (70 - 35);
+            cele.style.opacity = bse + (1 - (yp - 35) / (70 - 35)) * fbse;
         } else {
-            cele.style.opacity = 0;
+            cele.style.opacity = bse;
         }
     } else {
         cele.style.opacity = 1;

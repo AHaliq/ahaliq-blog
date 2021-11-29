@@ -10,6 +10,8 @@
     <script src="https://kit.fontawesome.com/fa2321cbaa.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
         :root {
             --fg-col: #333333;
             --fg-rgb: 51, 51, 51;
@@ -17,6 +19,8 @@
             --bg-rgb: 230, 230, 230;
             --fg2-col: #704b53;
             --fg2-rgb: 93, 73, 84;
+            background-color: var(--bg-col);
+            transition: 0.2s;
         }
 
         ::selection {
@@ -39,15 +43,9 @@
         body {
             display: flex;
             flex-direction: column;
-            font-family: 'Helvetica', 'Arial', sans-serif;
-        }
-
-        #bg {
-            position: fixed;
-            z-index: -2;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-col);
+            /*font-family: 'Helvetica', 'Arial', sans-serif;*/
+            font-family: 'Outfit', sans-serif;
+            /*font-size: 92%;*/
         }
 
         #vcontainer {
@@ -146,14 +144,14 @@
             padding-left: 15%;
             font-weight: bold;
             font-size: 2.5rem;
-            width: 20rem;
+            width: 15rem;
             padding-bottom: 2rem;
         }
 
         #brief {
             font-style: italic;
             padding-left: 15%;
-            width: 30rem;
+            width: 20rem;
             padding-bottom: 100vh;
         }
 
@@ -282,10 +280,9 @@
 </head>
 
 <body>
-    <div id="bg"></div>
     <div id="vcontainer">
         <div id="top-container">
-            <div id="circ">abdul•haliq•</div>
+            <div id="circ" onClick="circClick()">abdul•haliq•</div>
             <div id="socials-container">
                 <a href="https://twitter.com/ahaliq_" target="_blank" class="social-btn" id="twitter">
                     <div class="btn-text">twitter</div>
@@ -346,18 +343,39 @@
         </div>
     </div>
     <script>
+
         const ele = document.getElementById('circ');
         const circtxt = new CircleType(ele);
         ele.style.width = circtxt._radius * 2 + "px"
         // setup circle spinner logo
 
         const fg2 = getComputedStyle(document.documentElement).getPropertyValue('--fg2-col');
-        const fg1 = getComputedStyle(document.documentElement).getPropertyValue('--fg-col');
-        const bg = getComputedStyle(document.documentElement).getPropertyValue('--bg-col');
-        const bgrgb = getComputedStyle(document.documentElement).getPropertyValue('--bg-rgb');
-        const bgrgbarr = bgrgb.split(',').map(x => parseInt(x.trim()));
-        let fg, fgb, hi;
+        let fg1 = getComputedStyle(document.documentElement).getPropertyValue('--fg-col');
+        let bg = getComputedStyle(document.documentElement).getPropertyValue('--bg-col');
+        let fgrgb = getComputedStyle(document.documentElement).getPropertyValue('--fg-rgb');
+        let fgrgbarr = fgrgb.split(',').map(x => parseInt(x.trim()));
+        let bgrgb = getComputedStyle(document.documentElement).getPropertyValue('--bg-rgb');
+        let bgrgbarr = bgrgb.split(',').map(x => parseInt(x.trim()));
+        let fg, fgb, bgb, hi;
         // capture color variables
+
+        function circClick() {
+            document.documentElement.style.setProperty('--fg-col', bg);
+            document.documentElement.style.setProperty('--bg-col', fg1);
+            document.documentElement.style.setProperty('--fg-rgb', bgrgb);
+            document.documentElement.style.setProperty('--bg-rgb', fgrgb);
+            let t = fg1;
+            fg1 = bg;
+            bg = t;
+            t = fgrgbarr;
+            fgrgbarr = bgrgbarr;
+            bgrgbarr = t;
+            t = fgb;
+            fgb = bgb;
+            bgb = t;
+            inTransition = true;
+            it = 0;
+        }
 
         const wdt = 600;
         const hgt = 600;
@@ -395,7 +413,7 @@
 
         const virtualmsg = 'this is a virtual function, inherit this class and implement it';
         class ModuloShape {
-            constructor(x, y, r, n, m, { w = 0.2, bw = 1, dw = 4, c = fg, dc = hi, dp = 0, xs = 3, aw = 170, af = 28, fv = 0.08 } = {}) {
+            constructor(x, y, r, n, m, { w = 0.2, bw = 1, dw = 4, c = fg, dc = hi, dp = 0, xs = 4, aw = 170, af = 28, fv = 0.08 } = {}) {
                 this.x = x;     // center x coordinate
                 this.y = y;     // center y coordinate
                 this.r = r;     // radius of shape
@@ -772,14 +790,17 @@
         let grid;
         let tmr, maxTmr;
         let dyn = false;
+        let inTransition = false;
+        let it = 0;
         function reset(dyn = false) {
-            grid = dyn ? new DynamicGrid(0, 0, wdt / 9, 9, 9, 0.7, 0.97, 400) : new StaticGrid(2, 5, 0.97, 400);
+            grid = dyn ? new DynamicGrid(0, 0, wdt / 9, 9, 11, 0.7, 0.97, 400) : new StaticGrid(2, 5, 0.97, 400);
             tmr = 0;
-            maxTmr = round(random(1000, 2000));
+            maxTmr = round(random(1500, 2000));
         }
         function setup() {
             fg = color(fg2);
             fgb = color(fg1);
+            bgb = color(bg);
             hi = fg;
             // setup color constants
 
@@ -788,19 +809,32 @@
             window.onresize = repositionCanvas;
             canvas.addClass("canvas");
             repositionCanvas();
+            background(bg);
             // setup dom with canvas
 
             reset();
         }
 
         function draw() {
-            grid.anim();
-            if (tmr < maxTmr) tmr++;
-            else if (grid.isEmpty()) {
-                dyn = !dyn;
-                reset(dyn);
+            if (!inTransition) {
+                grid.anim();
+                if (tmr < maxTmr) tmr++;
+                else if (grid.isEmpty()) {
+                    dyn = !dyn;
+                    reset(dyn);
+                } else {
+                    grid.kill();
+                }
             } else {
-                grid.kill();
+                if (it < 25) {
+                    it++;
+                    background(color(...bgrgbarr, 0.3 * 255));
+                } else {
+                    background(color(...bgrgbarr));
+                    inTransition = false;
+                    dyn = !dyn;
+                    reset(dyn);
+                }
             }
         }
     </script>

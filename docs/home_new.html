@@ -2,17 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
     <script src="https://kit.fontawesome.com/fa2321cbaa.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
-
-        :root {
+        @import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+         :root {
             --fg-col: #333333;
             --fg-rgb: 51, 51, 51;
             --bg-col: #e6e6e6;
@@ -22,16 +21,16 @@
             background-color: var(--bg-col);
             transition: 0.2s;
         }
-
-        ::selection {
+        
+         ::selection {
             color: var(--bg-col);
             background: var(--fg2-col);
         }
-
+        
         a {
             text-decoration: none;
         }
-
+        
         html,
         body {
             height: 100%;
@@ -39,22 +38,22 @@
             padding: 0;
             color: var(--fg-col);
         }
-
+        
         body {
             display: flex;
             flex-direction: column;
             /*font-family: 'Helvetica', 'Arial', sans-serif;*/
-            font-family: 'Outfit', sans-serif;
+            font-family: "Outfit", sans-serif;
             /*font-size: 92%;*/
         }
-
+        
         #vcontainer {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-
+        
         #top-container {
             display: flex;
             position: fixed;
@@ -62,13 +61,13 @@
             justify-content: space-between;
             align-items: flex-start;
         }
-
+        
         #socials-container {
             display: flex;
             gap: 2rem;
             margin: 2rem;
         }
-
+        
         #circ {
             padding: 0.5rem;
             color: var(--fg2-col);
@@ -78,17 +77,17 @@
             animation: spin 25s linear infinite;
             user-select: none;
         }
-
+        
         .colr {
             color: var(--fg2-col);
         }
-
+        
         @keyframes spin {
             100% {
                 transform: rotate(360deg);
             }
         }
-
+        
         #blog-btn {
             text-transform: uppercase;
             font-weight: bold;
@@ -99,7 +98,7 @@
             user-select: none;
             cursor: pointer;
         }
-
+        
         .social-btn {
             color: var(--fg2-col);
             background-color: var(--bg-col);
@@ -110,36 +109,35 @@
             transition: 0.3s;
             cursor: pointer;
         }
-
+        
         .social-btn:hover {
             background-color: var(--fg2-col);
             color: var(--bg-col);
         }
-
+        
         .social-btn>i {
             display: none;
         }
-
-
+        
         #blog-btn:hover {
             padding-bottom: 0.1rem;
         }
-
+        
         #mid-gap {
             height: 2rem;
         }
-
+        
         #bot-gap {
             flex-grow: 1;
         }
-
+        
         #bot-container {
             width: 100%;
             padding-top: 35vh;
             display: flex;
             flex-direction: column;
         }
-
+        
         #hero {
             padding-left: 15%;
             font-weight: bold;
@@ -147,24 +145,24 @@
             width: 15rem;
             padding-bottom: 2rem;
         }
-
+        
         #brief {
             font-style: italic;
             padding-left: 15%;
             width: 20rem;
             padding-bottom: 100vh;
         }
-
+        
         #down-btn {
             padding-top: 0rem;
             transition: 0.1s;
             cursor: pointer;
         }
-
+        
         #down-btn:hover {
             padding-top: 1rem;
         }
-
+        
         #about-section {
             background-color: rgba(var(--bg-rgb), 0.7);
             display: flex;
@@ -177,19 +175,19 @@
             margin-bottom: 10vh;
             transition: 0.2s;
         }
-
+        
         #about-title {
             text-transform: uppercase;
             font-weight: bold;
             font-size: 1.25rem;
             padding-bottom: 2rem;
         }
-
+        
         #about-text {
             max-width: 45vw;
             min-width: 25rem;
         }
-
+        
         #bot-blog-btn {
             margin-left: 15%;
             font-weight: bold;
@@ -201,73 +199,66 @@
             user-select: none;
             cursor: pointer;
         }
-
+        
         #bot-blog-btn:hover {
             padding-bottom: 0.1rem;
             margin-bottom: 0.4rem;
         }
-
+        
         #bot-gap {
             height: 10vh;
         }
-
+        
         .canvas {
             z-index: -1;
             position: fixed;
             right: 0;
         }
-
+        
         @media only screen and (min-width: 1000px) {
             #about-section {
                 background: none !important;
                 padding-right: 600px;
             }
         }
-
+        
         @media only screen and (min-width: 1200px) {
             .canvas {
                 right: 15vw;
             }
-
             #about-section {
                 padding-right: calc(15vw + 600px);
             }
         }
-
+        
         @media only screen and (max-width: 600px) {
             #hero {
                 font-size: 1.5rem;
                 width: 12rem;
             }
-
             #brief {
                 width: 17rem;
             }
-
             #about-text {
                 min-width: 75vw;
             }
-
             #socials-container {
                 gap: 0.1rem;
                 margin-left: 0;
                 margin-right: 0;
                 align-items: center;
             }
-
             .btn-text {
                 display: none;
             }
-
             .social-btn>i {
                 display: block;
             }
-
             #about-section {
                 padding-right: 15%;
                 margin-bottom: 2rem;
+                background: none !important;
             }
-
             .canvas {
                 left: 50%;
                 top: 50% !important;
@@ -312,29 +303,19 @@
                 <div id="about-title">about</div>
                 <div id="about-text">
                     <p>
-                        I’m a Computer Science graduate from National University of Singapore with a focus area in
-                        Programming Languages. I’m a software engineer and researcher with interests in the field of
-                        type
-                        theory, logic and category theory.
+                        I’m a Computer Science graduate from National University of Singapore with a focus area in Programming Languages. I’m a software engineer and researcher with interests in the field of type theory, logic and category theory.
                     </p>
                     <p>
-                        I got into research intially from my exposure to haskell, and from there I was introduced to all
-                        of
-                        the mathematical theory behind the language.
+                        I got into research intially from my exposure to haskell, and from there I was introduced to all of the mathematical theory behind the language.
                     </p>
                     <p>
-                        What caught my attention the most at that point in time was homotopy type theory. I then began
-                        researching other related fields.
+                        What caught my attention the most at that point in time was homotopy type theory. I then began researching other related fields.
                     </p>
                     <p>
-                        On the engineering end, I familiarized myself with formal verification, model checkers and
-                        theorem
-                        provers, where I now apply in profession as a researcher at SMU’s Centre for Computational Law.
+                        On the engineering end, I familiarized myself with formal verification, model checkers and theorem provers, where I now apply in profession as a researcher at SMU’s Centre for Computational Law.
                     </p>
                     <p>
-                        I have experience working with compilers for programming languages in CCLAW and in Zilliqa’s
-                        smart
-                        contract language.
+                        I have experience working with compilers for programming languages in CCLAW and in Zilliqa’s smart contract language.
                     </p>
                 </div>
             </div>
@@ -343,11 +324,10 @@
         </div>
     </div>
     <script>
-
         const ele = document.getElementById('circ');
         const circtxt = new CircleType(ele);
         ele.style.width = circtxt._radius * 2 + "px"
-        // setup circle spinner logo
+            // setup circle spinner logo
 
         const fg2 = getComputedStyle(document.documentElement).getPropertyValue('--fg2-col');
         let fg1 = getComputedStyle(document.documentElement).getPropertyValue('--fg-col');
@@ -386,7 +366,11 @@
         // p5js canvas dimensions
 
         function scrollToBottom() {
-            window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+            window.scrollTo({
+                left: 0,
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
         }
 
         function scrollPercent(elm) {
@@ -398,51 +382,64 @@
             const yp = scrollPercent(document.body);
             const cele = document.querySelector(".canvas");
             const pad = 0.4;
+            const base = 0.2;
+            const avar = 1 - base;
             if (document.documentElement.clientWidth < 600) {
                 if (yp < 14) {
-                    cele.style.opacity = 0;
+                    cele.style.opacity = base;
                 } else if (yp < 35) {
-                    cele.style.opacity = (yp - 14) / (35 - 14);
+                    cele.style.opacity = base + avar * (yp - 14) / (35 - 14);
                 } else if (yp < 70) {
-                    cele.style.opacity = 1 - (yp - 35) / (70 - 35);
+                    cele.style.opacity = base + avar * (1 - (yp - 35) / (70 - 35));
                 } else {
-                    cele.style.opacity = 0;
+                    cele.style.opacity = base;
                 }
             } else {
                 cele.style.opacity = 1;
                 cele.style.top = Math.round((document.documentElement.clientHeight - hgt) * (yp * 0.01 * (1 - pad * 2) + pad)) + "px";
             }
         }
-        // dom event functions 
+        // dom event functions
 
         const virtualmsg = 'this is a virtual function, inherit this class and implement it';
         class ModuloShape {
-            constructor(x, y, r, n, m, { w = 0.2, bw = 1, dw = 4, c = fg, dc = hi, dp = 0, xs = 4, aw = 170, af = 28, fv = 0.08 } = {}) {
-                this.x = x;     // center x coordinate
-                this.y = y;     // center y coordinate
-                this.r = r;     // radius of shape
-                this.n = n;     // number of points
-                this.m = m;     // modular arithmetic multiplier
-                this.w = w;     // weight of line
-                this.bw = bw;   // weight of shape base line
-                this.dw = dw;   // scales w for deviant
-                this.c = c;     // colour
-                this.dc = dc;   // deviant colour
-                this.dp = dp;   // deviant probability
-                this.aw = aw;   // animation wait time
-                this.af = af;   // animation fade out time
-                this.fv = fv;   // fade value
-                this.xs = xs;   // number of pixels to extend fade out square size
-                this.tlx = x - r - xs;      // top left corner's x
-                this.tly = y - r - xs;      // top left corner's y
-                this.s = r * 2 + xs + xs;   // fade out square side size
-                this.pts;                   // list of points around shape
-                this.fi = 1 - fv;           // fade inverse '1 - fv'
+            constructor(x, y, r, n, m, {
+                w = 0.2,
+                bw = 1,
+                dw = 4,
+                c = fg,
+                dc = hi,
+                dp = 0,
+                xs = 4,
+                aw = 170,
+                af = 28,
+                fv = 0.08
+            } = {}) {
+                this.x = x; // center x coordinate
+                this.y = y; // center y coordinate
+                this.r = r; // radius of shape
+                this.n = n; // number of points
+                this.m = m; // modular arithmetic multiplier
+                this.w = w; // weight of line
+                this.bw = bw; // weight of shape base line
+                this.dw = dw; // scales w for deviant
+                this.c = c; // colour
+                this.dc = dc; // deviant colour
+                this.dp = dp; // deviant probability
+                this.aw = aw; // animation wait time
+                this.af = af; // animation fade out time
+                this.fv = fv; // fade value
+                this.xs = xs; // number of pixels to extend fade out square size
+                this.tlx = x - r - xs; // top left corner's x
+                this.tly = y - r - xs; // top left corner's y
+                this.s = r * 2 + xs + xs; // fade out square side size
+                this.pts; // list of points around shape
+                this.fi = 1 - fv; // fade inverse '1 - fv'
                 this.fc = color(...bgrgbarr, round(fv * 255)); // fade color
                 // constants
 
-                this.tp = 0;    // animation phase variable
-                this.t = 0;     // timer variable
+                this.tp = 0; // animation phase variable
+                this.t = 0; // timer variable
                 // variables
 
                 this.calculatePoints();
@@ -596,11 +593,11 @@
                 this.n = n; // number of cells along length
                 this.p = p; // number of simultaneous draws
                 this.g = g; // probability of cell growing
-                this.pad = pad;         // percent of smallest cell as padding
-                this.pts = pts;         // number of points for shapes
-                this.dev = dev;         // number of points to deviate for shapes
-                this.dp = dp;           // shape deviant probability
-                this.padw = pad * s;    // pad actual length
+                this.pad = pad; // percent of smallest cell as padding
+                this.pts = pts; // number of points for shapes
+                this.dev = dev; // number of points to deviate for shapes
+                this.dp = dp; // shape deviant probability
+                this.padw = pad * s; // pad actual length
 
                 this.shapes = [];
                 this.clears = [];
@@ -666,21 +663,36 @@
                 ].map((b, i) => [i, b]).filter(([i, b]) => !b).map(([i, b]) => i);
                 // get all valid expand choices
 
-                if (cs.length === 0) return [true, [tlx, tly], [brx, bry]];
+                if (cs.length === 0) return [true, [tlx, tly],
+                    [brx, bry]
+                ];
                 // if no choices, return as is
 
                 let c = cs[floor(random(0, cs.length))];
                 // make a choice
 
                 switch (c) {
-                    case 0: tlx--; tly--; break;
-                    case 1: tly--; brx++; break;
-                    case 2: brx++; bry++; break;
-                    default: tlx--; bry++;
+                    case 0:
+                        tlx--;
+                        tly--;
+                        break;
+                    case 1:
+                        tly--;
+                        brx++;
+                        break;
+                    case 2:
+                        brx++;
+                        bry++;
+                        break;
+                    default:
+                        tlx--;
+                        bry++;
                 }
                 // expand
 
-                return [false, [tlx, tly], [brx, bry]];
+                return [false, [tlx, tly],
+                    [brx, bry]
+                ];
             }
 
             makeShape() {
@@ -711,8 +723,11 @@
                 const M = round(random(2, N));
                 const c = lerpColor(fg, fgb, random(0, 1));
                 const rnd = random(1);
-                const f = ModuloCircle;//rnd < 0.8 ? ModuloCircle : rnd < 0.95 ? ModuloSquare : ModuloTriangle;
-                const shape = new f(x, y, r / 2, N, M, { c: c, dp: this.dp });
+                const f = ModuloCircle; //rnd < 0.8 ? ModuloCircle : rnd < 0.95 ? ModuloSquare : ModuloTriangle;
+                const shape = new f(x, y, r / 2, N, M, {
+                    c: c,
+                    dp: this.dp
+                });
                 this.shapes.push([shape, () => cells.forEach(x => this.unsetCell(...x))]);
                 // step4 : make shape
             }
@@ -733,9 +748,13 @@
                 let [cp, a] = this.shapes.reduce(([cp, a], [s, c]) => {
                     let res = s.anim();
                     switch (res) {
-                        case 0: return [cp + 1, [...a, [s, c]]];
-                        case 1: return [cp, [...a, [s, c]]];
-                        default: c(); return [cp, a];
+                        case 0:
+                            return [cp + 1, [...a, [s, c]]];
+                        case 1:
+                            return [cp, [...a, [s, c]]];
+                        default:
+                            c();
+                            return [cp, a];
                     }
                 }, [0, []]);
                 this.shapes = a;
@@ -765,8 +784,11 @@
                         const M = round(random(2, N));
                         const c = lerpColor(fg, fgb, random(0, 1));
                         const r = random(1);
-                        const f = ModuloCircle;//random([ModuloCircle, ModuloSquare, ModuloTriangle]);
-                        const circ = new f(x, y, (sze * 0.5) * this.pad, N, M, { c: c, dp: this.dp });
+                        const f = ModuloCircle; //random([ModuloCircle, ModuloSquare, ModuloTriangle]);
+                        const circ = new f(x, y, (sze * 0.5) * this.pad, N, M, {
+                            c: c,
+                            dp: this.dp
+                        });
                         return circ;
                     });
             }
@@ -796,11 +818,13 @@
         let dyn = false;
         let inTransition = false;
         let it = 0;
+
         function reset(dyn = false) {
             grid = dyn ? new DynamicGrid(0, 0, wdt / 9, 9, 11, 0.7, 0.97, 400) : new StaticGrid(2, 5, 0.97, 400);
             tmr = 0;
             maxTmr = round(random(1500, 2000));
         }
+
         function setup() {
             fg = color(fg2);
             fgb = color(fg1);

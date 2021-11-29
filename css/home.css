@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+:root {
+    --fg-col: #333333;
+    --fg-rgb: 51, 51, 51;
+    --bg-col: #e6e6e6;
+    --bg-rgb: 230, 230, 230;
+    --fg2-col: #704b53;
+    --fg2-rgb: 93, 73, 84;
+    background-color: var(--bg-col);
+    transition: 0.2s;
+}
+
+::selection {
+    color: var(--bg-col);
+    background: var(--fg2-col);
+}
+
+a {
+    text-decoration: none;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--fg-col);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /*font-family: 'Helvetica', 'Arial', sans-serif;*/
+    font-family: 'Outfit', sans-serif;
+    /*font-size: 92%;*/
+}
+
+#vcontainer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#top-container {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#socials-container {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+#circ {
+    padding: 0.5rem;
+    color: var(--fg2-col);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    animation: spin 25s linear infinite;
+    user-select: none;
+}
+
+.colr {
+    color: var(--fg2-col);
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#blog-btn {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.3rem solid var(--fg-col);
+    transition: 0.3s;
+    user-select: none;
+    cursor: pointer;
+}
+
+.social-btn {
+    color: var(--fg2-col);
+    background-color: var(--bg-col);
+    user-select: none;
+    width: fit-content;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.social-btn:hover {
+    background-color: var(--fg2-col);
+    color: var(--bg-col);
+}
+
+.social-btn>i {
+    display: none;
+}
+
+
+#blog-btn:hover {
+    padding-bottom: 0.1rem;
+}
+
+#mid-gap {
+    height: 2rem;
+}
+
+#bot-gap {
+    flex-grow: 1;
+}
+
+#bot-container {
+    width: 100%;
+    padding-top: 35vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#hero {
+    padding-left: 15%;
+    font-weight: bold;
+    font-size: 2.5rem;
+    width: 15rem;
+    padding-bottom: 2rem;
+}
+
+#brief {
+    font-style: italic;
+    padding-left: 15%;
+    width: 20rem;
+    padding-bottom: 100vh;
+}
+
+#down-btn {
+    padding-top: 0rem;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+#down-btn:hover {
+    padding-top: 1rem;
+}
+
+#about-section {
+    background-color: rgba(var(--bg-rgb), 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 10vh;
+    transition: 0.2s;
+}
+
+#about-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding-bottom: 2rem;
+}
+
+#about-text {
+    max-width: 45vw;
+    min-width: 25rem;
+}
+
+#bot-blog-btn {
+    margin-left: 15%;
+    font-weight: bold;
+    width: fit-content;
+    font-size: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.3rem solid var(--fg-col);
+    transition: 0.3s;
+    user-select: none;
+    cursor: pointer;
+}
+
+#bot-blog-btn:hover {
+    padding-bottom: 0.1rem;
+    margin-bottom: 0.4rem;
+}
+
+#bot-gap {
+    height: 10vh;
+}
+
+.canvas {
+    z-index: -1;
+    position: fixed;
+    right: 0;
+}
+
+@media only screen and (min-width: 1000px) {
+    #about-section {
+        background: none !important;
+        padding-right: 600px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .canvas {
+        right: 15vw;
+    }
+
+    #about-section {
+        padding-right: calc(15vw + 600px);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #hero {
+        font-size: 1.5rem;
+        width: 12rem;
+    }
+
+    #brief {
+        width: 17rem;
+    }
+
+    #about-text {
+        min-width: 75vw;
+    }
+
+    #socials-container {
+        gap: 0.1rem;
+        margin-left: 0;
+        margin-right: 0;
+        align-items: center;
+    }
+
+    .btn-text {
+        display: none;
+    }
+
+    .social-btn>i {
+        display: block;
+    }
+
+    #about-section {
+        padding-right: 15%;
+        margin-bottom: 2rem;
+    }
+
+    .canvas {
+        left: 50%;
+        top: 50% !important;
+        transform: translate(-50%, -50%);
+        width: 100vw !important;
+        height: 100vw !important;
+    }
+}

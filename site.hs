@@ -25,6 +25,9 @@ main = do
     match "css/*" $ do
       route idRoute
       compile compressCssCompiler
+    match "js/*" $ do
+      route idRoute
+      compile copyFileCompiler
     match "templates/*" $ compile templateBodyCompiler
     match "index.html" $ do
       route idRoute

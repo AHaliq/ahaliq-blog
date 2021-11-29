@@ -1,47 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/css/base.css" />
-    <link rel="stylesheet" href="/css/index.css" />
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$title$</title>
     <script src="https://kit.fontawesome.com/fa2321cbaa.js" crossorigin="anonymous"></script>
-    <title>A. Haliq - $title$</title>
+    <link rel="stylesheet" href="/css/home.css" />
 </head>
 
 <body>
-    <div class="hgap"></div>
-    <div class="vcontainer">
-        <div class="vgap"></div>
-        <div class="container">
-            <div class="year">
-                SG$year$
+    <div id="vcontainer">
+        <div id="top-container">
+            <div id="circ" onClick="circClick()">$name$</div>
+            <div id="socials-container">
+                <a href="https://twitter.com/ahaliq_" target="_blank" class="social-btn" id="twitter">
+                    <div class="btn-text">twitter</div>
+                    <i class="fab fa-twitter fa-lg"></i>
+                </a>
+                <a href="https://github.com/AHaliq" target="_blank" class="social-btn" id="github">
+                    <div class="btn-text">github</div>
+                    <i class="fab fa-github fa-lg"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ahaliq/" target="_blank" class="social-btn" id="linkedin">
+                    <div class="btn-text">linkedin</div>
+                    <i class="fab fa-linkedin fa-lg"></i>
+                </a>
             </div>
-            <div class="descr border-ele">
-                $body$
-            </div>
-            <div class="name border-ele">
-                $name$
-            </div>
-            <div class="nav">
-                <a href="/blog.html" class="nav-btn">blog,</a>
-                <a href="/about.html" class="nav-btn">about,</a>
-                <a href="/cv.html" class="nav-btn">résumé.</a>
-            </div>
-            <div class="splash">
-                ‹‹
-            </div>
-            <footer>
-                <a href="https://www.linkedin.com/in/ahaliq/" target="_blank" class="link-btn">linkedin</a>
-                <a href="https://github.com/AHaliq" target="_blank" class="link-btn">github</a>
-                <a href="" target="_blank" class="link-btn">medium</a>
-            </footer>
+            <div id="blog-btn">blog</div>
         </div>
-        <div class="vgap"></div>
+        <div id="bot-container">
+            <div id="hero">
+                Software Engineer, aspiring <span class="colr">PL</span> theorist
+            </div>
+            <div id="brief">
+                $teaser$
+                <div id="mid-gap"></div>
+                <i onClick="scrollToBottom()" id="down-btn" class="fas fa-chevron-down fa-2x"></i>
+            </div>
+            <div id="about-section">
+                <div id="about-title">about</div>
+                <div id="about-text">
+                    $body$
+                </div>
+            </div>
+            <div id="bot-blog-btn">read my blog</div>
+            <div id="bot-gap"></div>
+        </div>
     </div>
-    <div class="hgap"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.2/tinycolor.min.js"></script>
+    <script src="js/constants.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
+    <script src="js/circlelogo.js"></script>
+    <script src="js/domjs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+    <script src="js/p5logic.js"></script>
 </body>
 
 </html>

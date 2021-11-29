@@ -1,16 +1,47 @@
----
-title: Home
----
+<!doctype html>
+<html lang="en">
 
-<h2>Welcome</h2>
+<head>
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/fa2321cbaa.js" crossorigin="anonymous"></script>
+    <title>A. Haliq - $title$</title>
+</head>
 
-<img src="/images/haskell-logo.png" style="float: right; margin: 10px;" />
+<body>
+    <div class="hgap"></div>
+    <div class="vcontainer">
+        <div class="vgap"></div>
+        <div class="container">
+            <div class="year">
+                SG$year$
+            </div>
+            <div class="descr border-ele">
+                $body$
+            </div>
+            <div class="name border-ele">
+                $name$
+            </div>
+            <div class="nav">
+                <a href="/blog.html" class="nav-btn">blog,</a>
+                <a href="/about.html" class="nav-btn">about,</a>
+                <a href="/cv.html" class="nav-btn">résumé.</a>
+            </div>
+            <div class="splash">
+                ‹‹
+            </div>
+            <footer>
+                <a href="https://www.linkedin.com/in/ahaliq/" target="_blank" class="link-btn">linkedin</a>
+                <a href="https://github.com/AHaliq" target="_blank" class="link-btn">github</a>
+                <a href="" target="_blank" class="link-btn">medium</a>
+            </footer>
+        </div>
+        <div class="vgap"></div>
+    </div>
+    <div class="hgap"></div>
+</body>
 
-<p>Welcome to my blog!</p>
-
-<p>I've reproduced a list of recent posts here for your reading pleasure:</p>
-
-<h2>Posts</h2>
-$partial("templates/post-list.html")$
-
-<p>…or you can find more in the <a href="/archive.html">archives</a>.</p>
+</html>

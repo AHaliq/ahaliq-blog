@@ -385,6 +385,10 @@ class AlternatingAutomater {
         this.reset();
     }
 
+    updateFg2(c) {
+        fg = color(c);
+    }
+
     reset(isF = true) {
         this.grid = isF ? this.f() : this.g();
         this.it = 0;

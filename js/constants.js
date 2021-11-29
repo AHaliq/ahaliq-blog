@@ -1,13 +1,15 @@
-(() => {
+const randomizeFg2 = () => {
     //80,55 -- pastel
     //20,37 -- original sat and light
     //97,47 -- bright
     const newfg2 = tinycolor("hsl(" + Math.floor(Math.random() * 101) + "%,97%,47%)").toString();
     document.documentElement.style.setProperty('--fg2-col', newfg2);
-})();
+    fg2 = newfg2;
+    runner.updateFg2(fg2);
+};
 // randomize fg colorconst
 
-const fg2 = getComputedStyle(document.documentElement).getPropertyValue('--fg2-col');
+let fg2 = getComputedStyle(document.documentElement).getPropertyValue('--fg2-col');
 let fg1 = getComputedStyle(document.documentElement).getPropertyValue('--fg-col');
 let bg = getComputedStyle(document.documentElement).getPropertyValue('--bg-col');
 let fgrgb = getComputedStyle(document.documentElement).getPropertyValue('--fg-rgb');

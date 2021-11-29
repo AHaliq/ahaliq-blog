@@ -25,5 +25,6 @@ function circClick() {
     document.querySelector("#about-section").style.setProperty('background-color', 'rgba(var(--bg-rgb), 0.7)');
     runner.inTransition = true;
     runner.t = 0;
+    randomizeFg2();
 }
 // circle logo onclick

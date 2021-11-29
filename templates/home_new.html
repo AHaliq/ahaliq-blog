@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
     <script src="https://kit.fontawesome.com/fa2321cbaa.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.2/tinycolor.min.js"></script>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
          :root {
@@ -327,8 +328,11 @@
         const ele = document.getElementById('circ');
         const circtxt = new CircleType(ele);
         ele.style.width = circtxt._radius * 2 + "px"
-            // setup circle spinner logo
+        // setup circle spinner logo
 
+        const rndc = () => Math.floor(Math.random() * 256);
+        const newfg2 = tinycolor("rgb(" + [...Array(3).keys()].map(x => rndc()).join(",") + ")").saturate(10).darken(10).toString();
+        document.documentElement.style.setProperty('--fg2-col', newfg2);
         const fg2 = getComputedStyle(document.documentElement).getPropertyValue('--fg2-col');
         let fg1 = getComputedStyle(document.documentElement).getPropertyValue('--fg-col');
         let bg = getComputedStyle(document.documentElement).getPropertyValue('--bg-col');

@@ -1,9 +1,11 @@
 (() => {
-    const rndc = () => Math.floor(Math.random() * 256);
-    const newfg2 = tinycolor("rgb(" + [...Array(3).keys()].map(x => rndc()).join(",") + ")").saturate(10).darken(10).toString();
+    //80,55 -- pastel
+    //20,37 -- original sat and light
+    //97,47 -- bright
+    const newfg2 = tinycolor("hsl(" + Math.floor(Math.random() * 101) + "%,97%,47%)").toString();
     document.documentElement.style.setProperty('--fg2-col', newfg2);
 })();
-// randomize fg color
+// randomize fg colorconst
 
 const fg2 = getComputedStyle(document.documentElement).getPropertyValue('--fg2-col');
 let fg1 = getComputedStyle(document.documentElement).getPropertyValue('--fg-col');

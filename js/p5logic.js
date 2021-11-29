@@ -376,6 +376,7 @@ class AlternatingAutomater {
         this.f = f;
         this.g = g;
 
+        this.dyn = true;
         this.grid = null;      // automater object
         this.tmr = null;       // timer variable
         this.maxTmr = null;    // max timer value
@@ -386,8 +387,14 @@ class AlternatingAutomater {
 
     reset(isF = true) {
         this.grid = isF ? this.f() : this.g();
-        this.t = 0;
-        this.m = round(random(1500, 2000));
+        this.it = 0;
+        this.tmr = 0;
+        this.maxTmr = round(random(1500, 2000));
+    }
+
+    transition() {
+        this.inTransition = true;
+        this.it = 0;
     }
 
     anim() {
